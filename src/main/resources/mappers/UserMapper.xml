@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitam.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.bitam.pojo.User">
+		<constructor>
+			<idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="age" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+		</constructor>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, username, password, age, sex
+	</sql>
+	
+	<insert id="insertUser" parameterType="com.bitam.pojo.User">
+		INSERT INTO user_ssm(username,password,age,sex) 
+		VALUES(#{username,jdbcType=VARCHAR},
+				#{password,jdbcType=VARCHAR},
+				#{age,jdbcType=INTEGER},
+				#{sex,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteUserById" parameterType="int">
+		DELETE FROM 
+			`user_ssm` 
+		WHERE
+			id = #{id}
+	</delete>
+	
+	<update id="updateUserById" parameterType="com.bitam.pojo.User">
+		UPDATE 
+			`user_ssm` 
+		SET 
+			username = #{user.username},
+			password = #{user.password},
+			age = #{user.age},
+			sex = #{user.sex}
+		WHERE
+			id = #{user.id}
+	</update>
+	
+	<select id="selectUserCount" resultType="int">
+		SELECT COUNT(*) FROM
+			`user_ssm` 
+	</select>
+	
+	<select id="selectUserAll" resultMap="BaseResultMap">
+		SELECT 
+		<include refid="Base_Column_List"/> 
+		FROM user_ssm
+		ORDER BY id ASC
+	</select>
+	
+	<select id="selectUserById" resultMap="BaseResultMap" parameterType="int">
+		SELECT 
+			<include refid="Base_Column_List"/>
+		FROM 
+			`user_ssm` 
+		WHERE
+			id = #{id}
+	</select>
+</mapper>

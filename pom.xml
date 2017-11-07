@@ -35,6 +35,20 @@
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+
+		<!-- Spring AOP -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
+
 		<!-- Spring DataBase Dao -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -85,7 +99,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.6</version>
+			<version>5.1.30</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -98,13 +112,6 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 			<!--<scope>runtime</scope> -->
-		</dependency>
-
-		<!-- jackson-Json -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.12</version>
 		</dependency>
 
 		<!-- Servlet Jsp -->
@@ -123,11 +130,6 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.5.4</version>
 		</dependency>
 
 		<!-- log日志 -->
