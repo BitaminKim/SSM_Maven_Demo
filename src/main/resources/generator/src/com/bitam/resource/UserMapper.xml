@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitam.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.bitam.pojo.User">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Username" jdbcType="VARCHAR" property="username" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="Age" jdbcType="TINYINT" property="age" />
+    <result column="Sex" jdbcType="CHAR" property="sex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Username, Password, Age, Sex
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_ssm
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_ssm
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bitam.pojo.User">
+    insert into user_ssm (Id, Username, Password, 
+      Age, Sex)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{age,jdbcType=TINYINT}, #{sex,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bitam.pojo.User">
+    insert into user_ssm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="username != null">
+        Username,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="age != null">
+        Age,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bitam.pojo.User">
+    update user_ssm
+    <set>
+      <if test="username != null">
+        Username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        Age = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bitam.pojo.User">
+    update user_ssm
+    set Username = #{username,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      Age = #{age,jdbcType=TINYINT},
+      Sex = #{sex,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.bitam.pojo.User">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Username" jdbcType="VARCHAR" property="username" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="Age" jdbcType="TINYINT" property="age" />
+    <result column="Sex" jdbcType="CHAR" property="sex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Username, Password, Age, Sex
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_ssm
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_ssm
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.bitam.pojo.User">
+    insert into user_ssm (Id, Username, Password, 
+      Age, Sex)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{age,jdbcType=TINYINT}, #{sex,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bitam.pojo.User">
+    insert into user_ssm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="username != null">
+        Username,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="age != null">
+        Age,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bitam.pojo.User">
+    update user_ssm
+    <set>
+      <if test="username != null">
+        Username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        Age = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bitam.pojo.User">
+    update user_ssm
+    set Username = #{username,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      Age = #{age,jdbcType=TINYINT},
+      Sex = #{sex,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
